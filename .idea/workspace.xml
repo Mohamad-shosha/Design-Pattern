@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4199316-36dc-445a-a88b-fe944c118101" name="Changes" comment="Adding Lazy instantiation with thread safe" />
+    <list default="true" id="d4199316-36dc-445a-a88b-fe944c118101" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Design-Pattern/mycoolapp/src/main/java/com/luv2code/springboot/demo/mycoolapp/MycoolappApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Design-Pattern/mycoolapp/src/main/java/com/luv2code/springboot/demo/mycoolapp/designpattern/DbConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Design-Pattern/mycoolapp/src/main/java/com/luv2code/springboot/demo/mycoolapp/entity/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Design-Pattern/mycoolapp/src/main/java/com/luv2code/springboot/demo/mycoolapp/repository/Repository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Design-Pattern/mycoolapp/src/main/java/com/luv2code/springboot/demo/mycoolapp/rest/FunRestController.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +51,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "F:/Spring-diploma/Design-Pattern"
   }
 }]]></component>
@@ -99,5 +106,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding Lazy instantiation with thread safe" />
     <option name="LAST_COMMIT_MESSAGE" value="Adding Lazy instantiation with thread safe" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Design-Pattern/mycoolapp/src/main/java/com/luv2code/springboot/demo/designpattern/MycoolappApplication.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
