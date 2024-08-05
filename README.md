@@ -62,6 +62,4 @@ To use any of the Singleton implementations provided in this project, retrieve t
 * [Singleton Pattern - Wikipedia](https://en.wikipedia.org/wiki/Singleton_pattern)
 * [Effective Java - Item 2: Consider implementing a Singleton pattern](https://www.amazon.com/Effective-Java-Joshua-Bloch/dp/0134685997)
 
-## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
