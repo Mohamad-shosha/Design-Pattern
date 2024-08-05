@@ -5,9 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
+import java.util.*;
 
 @RestController
 @RequestMapping("Lazy")
@@ -23,11 +22,11 @@ public class LazyRestController {
     public void addStudents (){
         DbConnectionWithLazy dbConnectionWithLazy =DbConnectionWithLazy.getInstance();
         Student [] student = {new Student(1,"mohamed",20),new Student(5,"Ahmed",40),new Student(3,"shosha",30)};
-        List<Student> students = new ArrayList<>(Arrays.asList(student));
+        Set<Student> students = new HashSet<>(Arrays.asList(student));
         dbConnectionWithLazy.addAll(students);
     }
     @GetMapping("/GetStudents")
-    public List<Student> getStudents (){
+    public Set<Student> getStudents (){
         return DbConnectionWithLazy.getInstance().getStudents();
     }
 

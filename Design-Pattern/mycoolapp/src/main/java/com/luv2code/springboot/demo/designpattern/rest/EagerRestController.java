@@ -1,51 +1,50 @@
 package com.luv2code.springboot.demo.designpattern.rest;
+
 import com.luv2code.springboot.demo.designpattern.eagerinstantiation.DbConnectionWithEager;
 import com.luv2code.springboot.demo.designpattern.entity.Student;
+import com.luv2code.springboot.demo.designpattern.lazyinstantiation.DbConnectionWithLazy;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.*;
 
 @RestController
 @RequestMapping("Eager")
 public class EagerRestController {
 
+    @PostMapping("/AddStudent")
+    public ResponseEntity<String> addStudent(@RequestBody Student student) {
+        DbConnectionWithEager.getInstance().save(student);
+        return ResponseEntity.ok("Insertion of student complete");
+    }
 
-  @GetMapping("/AddStudent")
-  public void addStudent(){
-    Student student = new Student(3,"Karim",27);
-    DbConnectionWithEager.getInstance().save(student);
-  }
-  @GetMapping("/AddStudents")
-  public void addStudents (){
-    DbConnectionWithEager dbConnectionWithEager = DbConnectionWithEager.getInstance();
-    Student [] student = {new Student(1,"mohamed",20),new Student(5,"Ahmed",40),new Student(3,"shosha",30)};
-    List<Student> students = new ArrayList<>(Arrays.asList(student));
-    dbConnectionWithEager.addAll(students);
-  }
-  @GetMapping("/GetStudents")
-  public List<Student> getStudents (){
-    return DbConnectionWithEager.getInstance().getStudents();
-  }
+    @PostMapping("/AddStudents")
+    public ResponseEntity<String> addStudents(@RequestBody Set<Student> studentSet) {
+        DbConnectionWithLazy.getInstance().addAll(studentSet);
+        return ResponseEntity.ok("Insertion of students complete");
+    }
 
-  @GetMapping("/GetStudent")
-  public Student getStudent () {
-    return DbConnectionWithEager.getInstance().getStudent(5);
-  }
+    @GetMapping("/GetStudents")
+    public Set<Student> getStudents() {
+        return DbConnectionWithEager.getInstance().getStudents();
+    }
 
-  @GetMapping("/UpdateStudent")
-  public void updateStudent (){
-    DbConnectionWithEager dbConnectionWithEager = DbConnectionWithEager.getInstance();
-    Student student = new Student(4,"Ebrahim",67);
-    DbConnectionWithEager.getInstance().update(1,student);
-  }
+    @GetMapping("/GetStudent/{id}")
+    public Student getStudent(@PathVariable Integer id) {
+        return DbConnectionWithEager.getInstance().getStudent(id);
+    }
 
-  @GetMapping("/DeleteStudent")
-  public void deleteStudent (){
-    DbConnectionWithEager.getInstance().delete(4);
-  }
+    @PutMapping("/UpdateStudent/{id}")
+    public ResponseEntity<String> updateStudentWithId(@PathVariable Integer id, @RequestBody Student student) {
+        DbConnectionWithEager.getInstance().update(id, student);
+        return ResponseEntity.ok("Updating of student complete");
+    }
+
+    @DeleteMapping("/DeleteStudent/{id}")
+    public ResponseEntity<String> deleteStudentWithId(@PathVariable Integer id) {
+        DbConnectionWithEager.getInstance().delete(id);
+        return ResponseEntity.ok("Deleting of student complete");
+    }
 
 }
