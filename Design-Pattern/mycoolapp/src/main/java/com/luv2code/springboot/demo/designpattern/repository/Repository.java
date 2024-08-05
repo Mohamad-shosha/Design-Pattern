@@ -3,23 +3,26 @@ package com.luv2code.springboot.demo.designpattern.repository;
 import com.luv2code.springboot.demo.designpattern.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class Repository {
     private final Student student;
-    private final List<Student> Students = new ArrayList<>();
+    private final List<Student> students = new ArrayList<>();
+
     @Autowired
     public Repository(Student student) {
         this.student = student;
     }
 
-    public void saveStudent (Student student){
-        Students.add(student);
+    public void saveStudent(Student student) {
+        students.add(student);
     }
-    public void saveStudents (List<Student> students){
-        Students.addAll(students);
+
+    public void saveStudents(List<Student> students) {
+        this.students.addAll(students);
     }
 
     public void updateStudent(Integer id, Student updatedStudent) {
@@ -37,19 +40,17 @@ public class Repository {
         }
     }
 
-
-    public void deleteStudent (Integer id){
+    public void deleteStudent(Integer id) {
         Student student = findStudentById(id);
-        Students.remove(student);
+        students.remove(student);
     }
 
-    public List<Student> findAll (){
-
-        return Students;
+    public List<Student> findAll() {
+        return students;
     }
 
     public Student findStudentById(Integer id) {
-        return Students.stream()
+        return students.stream()
                 .filter(student -> student.getId().equals(id))
                 .findFirst() // Returns Optional<Student>
                 .orElse(null); // Return null if no student found
