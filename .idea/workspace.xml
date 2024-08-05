@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4199316-36dc-445a-a88b-fe944c118101" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Design-Pattern/mycoolapp/src/main/java/com/luv2code/springboot/demo/mycoolapp/MycoolappApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Design-Pattern/mycoolapp/src/main/java/com/luv2code/springboot/demo/mycoolapp/designpattern/DbConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Design-Pattern/mycoolapp/src/main/java/com/luv2code/springboot/demo/mycoolapp/entity/Student.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Design-Pattern/mycoolapp/src/main/java/com/luv2code/springboot/demo/mycoolapp/repository/Repository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Design-Pattern/mycoolapp/src/main/java/com/luv2code/springboot/demo/mycoolapp/rest/FunRestController.java" beforeDir="false" />
+    <list default="true" id="d4199316-36dc-445a-a88b-fe944c118101" name="Changes" comment="Updating the project">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,9 +48,14 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "F:/Spring-diploma/Design-Pattern"
+    "last_opened_file_path": "F:/Spring-diploma/Design-Pattern/Design-Pattern/mycoolapp/src/main"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Spring-diploma\Design-Pattern\Design-Pattern\mycoolapp\src\main" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="MycoolappApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.luv2code.springboot.demo.designpattern.MycoolappApplication" />
@@ -100,12 +101,21 @@
       <option name="project" value="LOCAL" />
       <updated>1722822467694</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Updating the project">
+      <option name="closed" value="true" />
+      <created>1722823026848</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1722823026848</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding Lazy instantiation with thread safe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Lazy instantiation with thread safe" />
+    <MESSAGE value="Updating the project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating the project" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
