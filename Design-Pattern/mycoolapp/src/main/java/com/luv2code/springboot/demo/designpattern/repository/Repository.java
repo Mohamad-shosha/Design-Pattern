@@ -3,7 +3,6 @@ package com.luv2code.springboot.demo.designpattern.repository;
 import com.luv2code.springboot.demo.designpattern.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -11,23 +10,17 @@ import java.util.Set;
 
 @Component
 public class Repository {
-    private Student student;
+    private final Student student;
     private final Set<Student> Students = new HashSet<>();
-//
-//    @Autowired
-//    public Repository(Student student) {
-//        this.student = student;
-//    }
-    @Autowired(required = false)
-    public void setterInjection(Student student) {
+    @Autowired
+    public Repository(Student student) {
         this.student = student;
     }
 
-    public void saveStudent(Student student) {
+    public void saveStudent (Student student){
         Students.add(student);
     }
-
-    public void saveStudents(Set<Student> students) {
+    public void saveStudents (Set<Student> students){
         Students.addAll(students);
     }
 
@@ -46,12 +39,14 @@ public class Repository {
         }
     }
 
-    public void deleteStudent(Integer id) {
+
+    public void deleteStudent (Integer id){
         Student student = findStudentById(id);
         Students.remove(student);
     }
 
-    public Set<Student> findAll() {
+    public Set<Student> findAll (){
+
         return Students;
     }
 
