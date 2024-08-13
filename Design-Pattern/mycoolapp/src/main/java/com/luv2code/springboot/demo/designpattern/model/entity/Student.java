@@ -1,10 +1,7 @@
-package com.luv2code.springboot.demo.designpattern.entity;
-
-import org.springframework.stereotype.Component;
+package com.luv2code.springboot.demo.designpattern.model.entity;
 
 import java.util.Objects;
 
-@Component
 public class Student {
     private Integer id;
     private String name;

@@ -1,9 +1,7 @@
 package com.luv2code.springboot.demo.designpattern.rest;
 
-import com.luv2code.springboot.demo.designpattern.eagerinstantiation.DbConnectionWithEager;
-import com.luv2code.springboot.demo.designpattern.entity.Student;
-import com.luv2code.springboot.demo.designpattern.lazyinstantiation.DbConnectionWithLazy;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.luv2code.springboot.demo.designpattern.service.DbConnectionWithEager;
+import com.luv2code.springboot.demo.designpattern.model.entity.Student;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,14 +17,8 @@ public class EagerRestController {
         return ResponseEntity.ok("Insertion of student complete");
     }
 
-    @PostMapping("/AddStudents")
-    public ResponseEntity<String> addStudents(@RequestBody Set<Student> studentSet) {
-        DbConnectionWithLazy.getInstance().addAll(studentSet);
-        return ResponseEntity.ok("Insertion of students complete");
-    }
-
     @GetMapping("/GetStudents")
-    public Set<Student> getStudents() {
+    public Collection<Student> getStudents() {
         return DbConnectionWithEager.getInstance().getStudents();
     }
 
@@ -41,10 +33,16 @@ public class EagerRestController {
         return ResponseEntity.ok("Updating of student complete");
     }
 
-    @DeleteMapping("/DeleteStudent/{id}")
-    public ResponseEntity<String> deleteStudentWithId(@PathVariable Integer id) {
+    @DeleteMapping("/DeleteStudentInParam")
+    public ResponseEntity<String> deleteStudentInParamWithId(@RequestParam Integer id) {
         DbConnectionWithEager.getInstance().delete(id);
         return ResponseEntity.ok("Deleting of student complete");
     }
+    @DeleteMapping("/DeleteStudentInPath/{id}")
+    public ResponseEntity<String> deleteStudentInPathWithId(@PathVariable Integer id) {
+        DbConnectionWithEager.getInstance().delete(id);
+        return ResponseEntity.ok("Deleting of student complete");
+    }
+
 
 }

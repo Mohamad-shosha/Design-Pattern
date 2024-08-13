@@ -1,59 +1,44 @@
 package com.luv2code.springboot.demo.designpattern.repository;
 
-import com.luv2code.springboot.demo.designpattern.entity.Student;
+import com.luv2code.springboot.demo.designpattern.model.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+
+import java.util.*;
 
 @Component
 public class Repository {
     private final Student student;
-    private final Set<Student> Students = new HashSet<>();
+    private final Map<Integer, Student> studentMap;
+
     @Autowired
     public Repository(Student student) {
         this.student = student;
+        studentMap = new HashMap<>();
     }
 
-    public void saveStudent (Student student){
-        Students.add(student);
-    }
-    public void saveStudents (Set<Student> students){
-        Students.addAll(students);
+    public void addStudent(Student student) {
+        studentMap.put(student.getId(), student);
     }
 
     public void updateStudent(Integer id, Student updatedStudent) {
-        Student studentToUpdate = findStudentById(id);
-
-        if (studentToUpdate != null) {
-            // Update the student with the new information
-            studentToUpdate.setId(updatedStudent.getId());
-            studentToUpdate.setName(updatedStudent.getName());
-            studentToUpdate.setAge(updatedStudent.getAge());
-            // Add more fields as needed
-        } else {
-            // Handle case where no student with the given ID is found
-            System.out.println("Student with ID " + id + " not found.");
+        if (studentMap.containsKey(id)) {
+            studentMap.put(id, updatedStudent);
         }
     }
 
-
-    public void deleteStudent (Integer id){
-        Student student = findStudentById(id);
-        Students.remove(student);
+    public void deleteStudent(Integer id) {
+        studentMap.remove(id);
     }
 
-    public Set<Student> findAll (){
-
-        return Students;
+    public Collection<Student> findAll() {
+        return studentMap.values();
     }
 
     public Student findStudentById(Integer id) {
-        return Students.stream()
-                .filter(student -> student.getId().equals(id))
-                .findFirst() // Returns Optional<Student>
-                .orElse(null); // Return null if no student found
+        return studentMap.get(id);
+    }
+    public Student getStudentInfo (){
+        return student;
     }
 }
