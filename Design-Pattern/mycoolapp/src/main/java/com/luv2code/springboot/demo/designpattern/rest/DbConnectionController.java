@@ -13,7 +13,7 @@ public class DbConnectionController {
     public DbConnectionController (DbConnectionService dbConnectionService){
         this.dbConnectionService=dbConnectionService;
     }
-    @GetMapping("getinfo")
+    @GetMapping("GetInfo")
     public Student getInfoOfStudents (){
         return dbConnectionService.getStudentInfo();
     }
