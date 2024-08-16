@@ -1,21 +1,22 @@
 package com.luv2code.springboot.demo.designpattern.service;
 
-import com.luv2code.springboot.demo.designpattern.model.entity.Student;
+import com.luv2code.springboot.demo.designpattern.model.entity.StudentDto;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
 @Service
 public interface DbConnectionService {
-    void save(Student student);
+    void save(StudentDto studentDto);
 
-    void delete(Integer id);
+    void deleteById(Integer id);
 
-    void update(Integer id, Student student);
+    void update(Integer id, StudentDto studentDto);
 
-    Student getStudent(Integer id);
+    StudentDto getStudent(Integer id);
 
-    Collection<Student> getStudents();
+    Collection<StudentDto> getStudents();
 
-    Student getStudentInfo();
+    StudentDto getStudentInfo();
+    void deleteByEmail(String email);
 }

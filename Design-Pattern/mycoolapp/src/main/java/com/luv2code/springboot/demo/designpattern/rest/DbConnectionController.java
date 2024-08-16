@@ -1,6 +1,6 @@
 package com.luv2code.springboot.demo.designpattern.rest;
 
-import com.luv2code.springboot.demo.designpattern.model.entity.Student;
+import com.luv2code.springboot.demo.designpattern.model.entity.StudentDto;
 import com.luv2code.springboot.demo.designpattern.service.DbConnectionService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ public class DbConnectionController {
         this.dbConnectionService=dbConnectionService;
     }
     @GetMapping("GetInfo")
-    public Student getInfoOfStudents (){
+    public StudentDto getInfoOfStudents (){
         return dbConnectionService.getStudentInfo();
     }
 }

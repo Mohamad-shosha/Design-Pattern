@@ -3,17 +3,33 @@ package com.luv2code.springboot.demo.designpattern.service;
 import com.luv2code.springboot.demo.designpattern.model.entity.StudentDto;
 import com.luv2code.springboot.demo.designpattern.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 
-@Service
-public class DbConnectionImpl implements DbConnectionService {
-    private final StudentRepository studentRepository;
+@Component
+@Primary
+public class DbConnectionWithLazyImpl implements DbConnectionService {
 
-    @Autowired
-    public DbConnectionImpl(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
+    // Lazy instantiation ....
+    private static DbConnectionWithLazyImpl instance;
+    private static StudentRepository studentRepository;
+
+    private DbConnectionWithLazyImpl() {
+    }
+
+    @Autowired(required = false)
+    public void setRepository(StudentRepository studentRepository) {
+        DbConnectionWithLazyImpl.studentRepository = studentRepository;
+    }
+
+    // Thread Safe ....
+    public synchronized DbConnectionWithLazyImpl getInstance() {
+        if (instance == null) {
+            instance = new DbConnectionWithLazyImpl();
+        }
+        return instance;
     }
 
     public void save(StudentDto studentDto) {
@@ -41,7 +57,6 @@ public class DbConnectionImpl implements DbConnectionService {
     }
 
     public void deleteByEmail(String email) {
-
+        studentRepository.deleteByEmail(email);
     }
-
 }

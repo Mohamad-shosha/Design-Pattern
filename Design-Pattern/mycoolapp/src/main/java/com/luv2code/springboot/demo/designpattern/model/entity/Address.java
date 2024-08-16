@@ -1,7 +1,9 @@
 package com.luv2code.springboot.demo.designpattern.model.entity;
 
-import java.util.Objects;
+import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+@Component
 public class Address {
 
     private String country;
@@ -18,7 +20,6 @@ public class Address {
         this.street = street;
         this.buildingNumber = buildingNumber;
     }
-
 
     public String getCountry() {
         return country;
