@@ -10,6 +10,7 @@ The **Singleton Pattern** is a design pattern that ensures a class has only one 
   - [Lazy Initialization](#lazy-initialization)
   - [Thread-Safe Singleton](#thread-safe-singleton)
   - [Double-Checked Locking](#double-checked-locking)
+- [Builder Pattern](#builder-pattern)
 - [Usage](#usage)
 - [Resources](#resources)
 - [License](#license)
@@ -53,13 +54,36 @@ Double-Checked Locking is an optimization technique for lazy initialization that
 - **Synchronized Block**: If the instance is null, enter a synchronized block to ensure only one thread can create the instance.
 - **Second Check**: Check if the instance is still null inside the synchronized block to handle race conditions.
 
+## Builder Pattern
+
+The **Builder Pattern** is a design pattern used to construct complex objects step-by-step. It allows for the creation of an object in a controlled manner, separating the construction of the object from its representation. This pattern is especially useful when an object needs to be constructed with multiple optional components or configurations.
+
+### Key Concepts
+
+1. **Step-by-Step Construction**: Breaks down the construction process into manageable steps.
+2. **Immutability**: Often used to create immutable objects, ensuring that once an object is constructed, it cannot be modified.
+3. **Complex Object Creation**: Simplifies the creation of objects with many parameters or complex configurations.
+
+### Benefits
+
+- **Readable Code**: Makes the code more readable and maintainable by separating the construction logic from the object itself.
+- **Flexibility**: Allows for the creation of different representations of an object.
+- **Controlled Construction**: Provides control over the construction process, ensuring that the object is built correctly and consistently.
+
 ## Usage
 
-To use any of the Singleton implementations provided in this project, retrieve the singleton instance through the appropriate method provided by each implementation. This pattern ensures that only one instance of the class is created and used throughout the application.
+To use any of the Singleton or Builder patterns provided in this project:
+
+- **Singleton Pattern**: Retrieve the singleton instance through the appropriate method provided by each implementation to ensure a single instance of the class is used.
+- **Builder Pattern**: Utilize the builder to create instances of complex objects in a step-by-step manner.
 
 ## Resources
 
-* [Singleton Pattern - Wikipedia](https://en.wikipedia.org/wiki/Singleton_pattern)
-* [Effective Java - Item 2: Consider implementing a Singleton pattern](https://www.amazon.com/Effective-Java-Joshua-Bloch/dp/0134685997)
+- [Singleton Pattern - Wikipedia](https://en.wikipedia.org/wiki/Singleton_pattern)
+- [Effective Java - Item 2: Consider implementing a Singleton pattern](https://www.amazon.com/Effective-Java-Joshua-Bloch/dp/0134685997)
+- [Builder Pattern - Wikipedia](https://en.wikipedia.org/wiki/Builder_pattern)
+- [Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612)
 
+## License
 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
