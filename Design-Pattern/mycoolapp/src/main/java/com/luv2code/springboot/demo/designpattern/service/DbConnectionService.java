@@ -1,22 +1,25 @@
 package com.luv2code.springboot.demo.designpattern.service;
 
-import com.luv2code.springboot.demo.designpattern.model.entity.StudentDto;
+import com.luv2code.springboot.demo.designpattern.error.exception.IsEmpty;
+import com.luv2code.springboot.demo.designpattern.error.exception.StudentNotFoundException;
+import com.luv2code.springboot.demo.designpattern.model.dto.StudentDto;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
 @Service
 public interface DbConnectionService {
-    void save(StudentDto studentDto);
-
-    void deleteById(Integer id);
-
-    void update(Integer id, StudentDto studentDto);
-
-    StudentDto getStudent(Integer id);
+    void addStudent(StudentDto student);
 
     Collection<StudentDto> getStudents();
 
-    StudentDto getStudentInfo();
-    void deleteByEmail(String email);
+    StudentDto findStudentById(String id) throws StudentNotFoundException;
+
+    void updateStudent(String id, StudentDto updatedStudentDto);
+
+    void deleteStudentById(String id);
+
+    int countStudents();
+
+    void clear() throws IsEmpty;
 }

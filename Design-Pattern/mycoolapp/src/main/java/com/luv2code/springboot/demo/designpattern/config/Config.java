@@ -1,9 +1,5 @@
 package com.luv2code.springboot.demo.designpattern.config;
-
-import com.luv2code.springboot.demo.designpattern.model.entity.Address;
-import com.luv2code.springboot.demo.mycoolapp.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
