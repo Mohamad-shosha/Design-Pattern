@@ -1,6 +1,7 @@
 package com.luv2code.springboot.demo.designpattern.error;
 
 import com.luv2code.springboot.demo.designpattern.error.errorbody.ResponseError;
+import com.luv2code.springboot.demo.designpattern.error.exception.CouchNotFoundException;
 import com.luv2code.springboot.demo.designpattern.error.exception.IsEmpty;
 import com.luv2code.springboot.demo.designpattern.error.exception.StudentNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ public class ErrorControllerHandler {
                 exception.getCurrentTimestamp());
         return new ResponseEntity<>(responseError, HttpStatus.NOT_FOUND);
     }
+
     @ExceptionHandler(IsEmpty.class)
     public ResponseEntity<ResponseError> runTimeExceptionHandler(IsEmpty exception) {
         ResponseError responseError = new ResponseError(exception.getCode(),
@@ -26,5 +28,14 @@ public class ErrorControllerHandler {
                 exception.getDescription(),
                 exception.getCurrentTime());
         return new ResponseEntity<>(responseError, HttpStatus.BAD_GATEWAY);
+    }
+
+    @ExceptionHandler(CouchNotFoundException.class)
+    public ResponseEntity<ResponseError> runTimeExceptionHandler(CouchNotFoundException exception) {
+        ResponseError responseError = new ResponseError(exception.getErrorCode(),
+                exception.getErrorMassage(),
+                exception.getErrorDescription(),
+                exception.getCurrentTimestamp());
+        return new ResponseEntity<>(responseError, HttpStatus.NOT_FOUND);
     }
 }
