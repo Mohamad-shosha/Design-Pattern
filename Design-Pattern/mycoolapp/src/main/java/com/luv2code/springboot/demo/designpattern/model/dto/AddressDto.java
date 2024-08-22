@@ -3,12 +3,15 @@ package com.luv2code.springboot.demo.designpattern.model.dto;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;
-@NoArgsConstructor
+@Data
+@ToString
 @Component
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 public class AddressDto {
     @NotBlank(message = "Country is required")
     @Size(min = 2, max = 50, message = "Country must be between 2 and 50 characters")
@@ -79,27 +82,4 @@ public class AddressDto {
         return new AddressDtoBuilder();
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AddressDto addressDto = (AddressDto) o;
-        return buildingNumber == addressDto.buildingNumber && Objects.equals(country, addressDto.country) && Objects.equals(city, addressDto.city) && Objects.equals(street, addressDto.street);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(country, city, street, buildingNumber);
-    }
-
-    @Override
-    public String toString() {
-        return "AddressDto{" +
-                "country='" + country + '\'' +
-                ", city='" + city + '\'' +
-                ", street='" + street + '\'' +
-                ", buildingNumber=" + buildingNumber +
-                ", zipcode='" + zipcode + '\'' +
-                '}';
-    }
 }
