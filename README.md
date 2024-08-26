@@ -10,6 +10,7 @@ The **Singleton Pattern** is a design pattern that ensures a class has only one 
   - [Lazy Initialization](#lazy-initialization)
   - [Thread-Safe Singleton](#thread-safe-singleton)
   - [Double-Checked Locking](#double-checked-locking)
+- [Factory Pattern Integration](#factory-pattern-integration)
 - [Builder Pattern](#builder-pattern)
 - [Usage](#usage)
 - [Resources](#resources)
@@ -54,6 +55,21 @@ Double-Checked Locking is an optimization technique for lazy initialization that
 - **Synchronized Block**: If the instance is null, enter a synchronized block to ensure only one thread can create the instance.
 - **Second Check**: Check if the instance is still null inside the synchronized block to handle race conditions.
 
+## Factory Pattern Integration
+
+To effectively use the Singleton Pattern within a Factory Pattern context, follow these guidelines:
+
+1. **Define the `Couch` Interface**: This interface should include common methods that all concrete couch types will implement, ensuring consistent interaction with different types of couches.
+
+2. **Implement Concrete Classes**: Create specific implementations of the `Couch` interface, such as `FootballCouch`, `BaseballCouch`, and `BasketballCouch`. Each class will provide its own version of the methods defined in the `Couch` interface.
+
+3. **Create a Singleton Factory**: Implement a factory class (`CouchFactory`) that follows the Singleton Pattern. This ensures that only one instance of the factory exists:
+   - **Private Constructor**: The factory’s constructor should be private to prevent direct instantiation.
+   - **Static Inner Class**: Use a static inner class to hold the singleton instance, which allows for lazy initialization and ensures thread safety.
+   - **Global Access Point**: Provide a static method to access the singleton instance of the factory. This method will be used to create instances of the different `Couch` types.
+
+By integrating the Singleton Pattern with the Factory Pattern, you ensure that there is a single, consistent point of access for creating `Couch` objects while managing resource usage efficiently and maintaining application consistency.
+
 ## Builder Pattern
 
 The **Builder Pattern** is a design pattern used to construct complex objects step-by-step. It allows for the creation of an object in a controlled manner, separating the construction of the object from its representation. This pattern is especially useful when an object needs to be constructed with multiple optional components or configurations.
@@ -84,6 +100,3 @@ To use any of the Singleton or Builder patterns provided in this project:
 - [Builder Pattern - Wikipedia](https://en.wikipedia.org/wiki/Builder_pattern)
 - [Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612)
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
