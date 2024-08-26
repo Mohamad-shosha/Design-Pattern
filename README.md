@@ -1,4 +1,4 @@
-# Singleton Pattern in Java
+# Design Pattern in Java
 
 The **Singleton Pattern** is a design pattern that ensures a class has only one instance and provides a global point of access to that instance. This pattern is particularly useful when exactly one instance of a class is required to coordinate actions across the system or to manage resources efficiently.
 
